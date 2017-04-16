@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#Emmi Inteligente versão 1.0
+#É um script automatizado que ajuda
+#Os iniciantes para terem uma didatica melhor
+#Assim vao entender a sintaxe do comando
+#Escrito por slackjeff e Sidnei Weber.
+#Se for copiar ou distribuir, mantenha o crédito!
+
+
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+echo "$(tput setaf 2)Você me chamou?! você deseja aprender alguns comandos meu?" ;sleep 2
+echo "$(tput setaf 7)Digite [sim] para continuar ou tecle [enter] para sair!"
+read resp
+if [ $resp. != 'sim.' ]; then
+    exit 0
+fi
+
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+echo "      ___           ___           ___                  "
+echo "     /  /\         /__/\         /__/\        ___      "	
+echo "    /  /:/_       |  |::\       |  |::\      /  /\     "
+echo "   /  /:/ /\      |  |:|:\      |  |:|:\    /  /:/     "
+echo "  /  /:/ /:/_   __|__|:|\:\   __|__|:|\:\  /__/::\     " Versão 1.0
+echo " /__/:/ /:/ /\ /__/::::| \:\ /__/::::| \:\ \__\/\:\__  "
+echo " \  \:\/:/ /:/ \  \:\~~\__\/ \  \:\~~\__\/    \  \:\/\ "
+echo "  \  \::/ /:/   \  \:\        \  \:\           \__\::/ "
+echo "   \  \:\/:/     \  \:\        \  \:\          /__/:/  "
+echo "    \  \::/       \  \:\        \  \:\         \__\/   "
+echo "     \__\/         \__\/         \__\/                 "
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+
+
+echo "$(tput setaf 3)Vou mostrar o meu manual de uso!";sleep 1
+echo "$(tput setaf 7)Para qualquer coisa que você deseja executar, me chame!" ;sleep 1
+echo "$(tput setaf 1)É só chamar emmi-COMANDO" ;sleep 2
+echo "$(tput setaf 3)Lembre-se de não usar acentuações nos comandos!";sleep 1
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+echo "$(tput setaf 7)Para ler o Manual do comando: $(tput setaf 5)emmi-ajuda $(tput setaf 6)NomePrograma"
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+echo "$(tput setaf 7)Para Instalar um programa: $(tput setaf 5)emmi-instalar $(tput setaf 6)NomePrograma"
+echo "$(tput setaf 7)Para Remover um programa: $(tput setaf 5)emmi-remover$(tput setaf 6)NomePrograma"
+echo "$(tput setaf 7)Para Procurar um programa: $(tput setaf 5)emmi-procurar $(tput setaf 6)NomePrograma"
+echo "$(tput setaf 7)Para Atualizar o Sistema: $(tput setaf 5)emmi-atualizar"
+echo "$(tput setaf 7)Para Atualizar a Versão do Sistema: $(tput setaf 5)emmi-atualizar-versao"
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+echo "$(tput setaf 7)Para gerar um pacote .deb, vá até a pasta e rode: $(tput setaf 5)emmi-pacote"
+echo "$(tput setaf 7)Para dar Ping: $(tput setaf 5)emmi-ping"
+echo "$(tput setaf 7)Para ver as Configurações do Sistema: $(tput setaf 5)emmi-sistema"
+echo "$(tput setaf 7)Para Desligar o Sistema: $(tput setaf 5)emmi-desligar"
+echo "$(tput setaf 2)---------------------------------------------------------------------"
+
+echo "$(tput setaf 3)Lembre-se eu funciono somente via terminal"

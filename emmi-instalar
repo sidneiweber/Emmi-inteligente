@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#Emmi Inteligente versão 1.0
+#Emmi Linux
+
+
+# Não é root, logar como root
+if (( $EUID != 0 )); then
+    echo "$(tput setaf 1)Favor entrar como root, use o comando $(tput setaf 2)su"
+    exit
+fi
+
+echo "$(tput setaf 2)Nunca se esqueça de atualizar o repositório, $(tput setaf 5)utilize emmi-atualizar." ;sleep 1
+echo
+apt install $1
+echo "$(tput setaf 3)Concluímos...Tenha um bom dia!"

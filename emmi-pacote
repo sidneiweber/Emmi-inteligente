@@ -1,0 +1,13 @@
+#!/bin/bash
+#Emmi Inteligente versão 1.0
+#Emmi Linux
+
+# if not root, run as root
+if (( $EUID != 0 )); then
+    echo "Favor entrar como root"
+    exit
+fi
+echo "$(tput setaf 1)Talvez encontre problemas com dependências."
+echo "$(tput setaf 2)Para corrigir use emmi-dependencia" ;sleep 2
+dpkg-buildpackage
+echo "$(tput setaf 3)Concluído..." ;sleep 1

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#Emmi Inteligente versão 1.0
+#Emmi Linux
+
+
+# Não é root, logar como root
+if (( $EUID != 0 )); then
+    echo "$(tput setaf 1)Favor entrar como root, use o comando $(tput setaf 2)su"
+    exit
+fi
+
+apt remove $1
+echo
+echo "$(tput setaf 3)Pacote removido...Tenha um bom dia!"

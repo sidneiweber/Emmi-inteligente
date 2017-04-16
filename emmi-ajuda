@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#Emmi Inteligente versão 1.0
+
+man $1 | less

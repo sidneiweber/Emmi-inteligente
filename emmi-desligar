@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#Emmi Inteligente versão 1.0
+#Emmi Linux
+
+
+sudo shutdown -h now
+echo "$(tput setaf 2)Vou desligar o Sistema..." 
+echo "$(tput setaf 1)Tchau, até logo!" ;sleep 1 
