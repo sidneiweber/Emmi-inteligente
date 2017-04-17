@@ -2,11 +2,16 @@
 #Emmi Inteligente versão 1.0
 #Emmi Linux
 
-# if not root, run as root
-if (( $EUID != 0 )); then
-    echo "Favor entrar como root"
-    exit
+# Não é root, logar como root
+if (( $EUID != 0 ))
+then
+        echo "Você não está logado" ;sleep 1
+        su -l
+else
+        echo "Com grandes poderes vem grandes responsabilidades #root"
 fi
+#fim
+
 echo "$(tput setaf 1)Talvez encontre problemas com dependências."
 echo "$(tput setaf 2)Para corrigir use emmi-deps" ;sleep 2
 apt-get -f install
