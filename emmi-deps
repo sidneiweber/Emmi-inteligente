@@ -12,7 +12,6 @@ else
 fi
 #fim
 
-echo "$(tput setaf 1)Talvez encontre problemas com dependências."
-echo "$(tput setaf 2)Para corrigir use emmi-deps" ;sleep 2
+echo "Começando" ;sleep 1
 apt-get -f install
 echo "$(tput setaf 3)Concluído..." ;sleep 1
