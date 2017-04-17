@@ -4,9 +4,14 @@
 #Emmi Linux
 
 # Não é root, logar como root
-if (( $EUID != 0 )); then
-    echo "$(tput setaf 1)Favor entrar como root, use o comando $(tput setaf 2)su"
-    exit
+if (( $EUID != 0 ))
+then
+        echo "Você não está logado" ;sleep 1
+        su -l
+else
+        echo "Com grandes poderes vem grandes responsabilidades #root"
 fi
+#fim
 
+echo "Iniciando a procura" ;sleep 1
 apt search $1
