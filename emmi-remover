@@ -5,11 +5,16 @@
 
 
 # Não é root, logar como root
-if (( $EUID != 0 )); then
-    echo "$(tput setaf 1)Favor entrar como root, use o comando $(tput setaf 2)su"
-    exit
+if (( $EUID != 0 ))
+then
+        echo "Você não está logado" ;sleep 1
+        su -l
+else
+        echo "Com grandes poderes vem grandes responsabilidades #root"
 fi
+#fim
 
+echo "Removendo..." ;sleep 1
 apt remove $1
 echo
 echo "$(tput setaf 3)Pacote removido...Tenha um bom dia!"
