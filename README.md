@@ -1,5 +1,5 @@
 # Emmi-inteligente
 
-Localizado em 
-/usr/bin
-chmod +x emmi*
+# Localizado<br>
+/usr/bin<br>
+<b>Permissão:</b> chmod +x emmi*
