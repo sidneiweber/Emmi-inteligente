@@ -5,16 +5,17 @@
 
 
 # Não é root, logar como root
-if (( $EUID != 0 ))
+if [ "$(id -u)" != "0" ]
 then
-        echo "Você não está logado" ;sleep 1
+        echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
         su -l
 else
-        echo "Com grandes poderes vem grandes responsabilidades #root"
+else
+        echo "Super vaca ativada, sinto cheiro de novos pacotes" ;sleep 1
 fi
 #fim
 
-echo "$(tput setaf 2)Nunca se esqueça de atualizar o repositório, $(tput setaf 5)utilize emmi-atualizar." ;sleep 1
-echo
-apt install $1
-echo "$(tput setaf 3)Concluímos...Tenha um bom dia!"
+	echo "$(tput setaf 2)Nunca se esqueça de atualizar o repositório, $(tput setaf 5)utilize emmi-atualizar." ;sleep 1
+	echo
+	apt install $1
+	echo "$(tput setaf 3)Concluímos...Tenha um bom dia!"

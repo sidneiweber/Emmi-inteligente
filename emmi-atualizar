@@ -2,19 +2,17 @@
 #Emmi Inteligente versão 1.0
 #Emmi Linux
 
-# Não é root, logar como root
-if (( $EUID != 0 ))
-then
-        echo "Você não está logado" ;sleep 1
-        su -l
-else
-        echo "Com grandes poderes vem grandes responsabilidades #root"
-fi
-#fim
 
-echo "$(tput setaf 3)Isso exigirá um pouco da sua internet, vá tomar uma café e aguarde!" ;sleep 2
-echo "$(tput setaf 1)Iniciando" ;sleep 1
-sudo apt update
-echo "$(tput setaf 2)Concluído..." ;sleep 1
-sudo  apt upgrade
-echo "$(tput setaf 2)Concluímos, tenha um ótimo dia!"
+if [ "$(id -u)" != "0" ]
+then
+	echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
+	su -l
+
+else
+	
+        echo "$(tput setaf 1)Super vaca ativada, vamos atualizar o sistema" ;sleep 1
+        apt-get update  # atualiza o repositorio
+        echo "$(tput setaf 2)Concluído..." ;sleep 1
+        apt-get upgrade # atualiza o sistema 
+        echo "$(tput setaf 2)Concluímos, tenha um ótimo dia!"
+fi

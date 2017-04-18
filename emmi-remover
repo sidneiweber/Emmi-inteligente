@@ -5,16 +5,16 @@
 
 
 # Não é root, logar como root
-if (( $EUID != 0 ))
+if [ "$(id -u)" != "0" ]
 then
-        echo "Você não está logado" ;sleep 1
+        echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
         su -l
 else
-        echo "Com grandes poderes vem grandes responsabilidades #root"
+        echo "Super vaca ativada, $(tput setaf 3)vamos remover o pacote" ;sleep 1
 fi
 #fim
 
-echo "Removendo..." ;sleep 1
-apt remove $1
-echo
-echo "$(tput setaf 3)Pacote removido...Tenha um bom dia!"
+	echo "Removendo..." ;sleep 1
+	apt remove $1
+	echo
+	echo "$(tput setaf 3)Pacote removido...Tenha um bom dia!"
