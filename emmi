@@ -1,52 +1,162 @@
 #!/bin/bash
-
-#Emmi Inteligente versão 1.0
-#É um script automatizado que ajuda
-#Os iniciantes para terem uma didatica melhor
-#Assim vao entender a sintaxe do comando
-#Escrito por slackjeff e Sidnei Weber.
-#Se for copiar ou distribuir, mantenha o crédito!
-
-
-echo "$(tput setaf 2)---------------------------------------------------------------------"
-echo "$(tput setaf 2)Você me chamou?! você deseja aprender alguns comandos meu?" ;sleep 2
-echo "$(tput setaf 7)Digite [sim] para continuar ou tecle [enter] para sair!"
-read resp
-if [ $resp. != 'sim.' ]; then
-    exit 0
-fi
-
-echo "$(tput setaf 2)---------------------------------------------------------------------"
-echo "      ___           ___           ___                  "
-echo "     /  /\         /__/\         /__/\        ___      "	
-echo "    /  /:/_       |  |::\       |  |::\      /  /\     "
-echo "   /  /:/ /\      |  |:|:\      |  |:|:\    /  /:/     "
-echo "  /  /:/ /:/_   __|__|:|\:\   __|__|:|\:\  /__/::\     " Versão 1.0
-echo " /__/:/ /:/ /\ /__/::::| \:\ /__/::::| \:\ \__\/\:\__  "
-echo " \  \:\/:/ /:/ \  \:\~~\__\/ \  \:\~~\__\/    \  \:\/\ "
-echo "  \  \::/ /:/   \  \:\        \  \:\           \__\::/ "
-echo "   \  \:\/:/     \  \:\        \  \:\          /__/:/  "
-echo "    \  \::/       \  \:\        \  \:\         \__\/   "
-echo "     \__\/         \__\/         \__\/                 "
-echo "$(tput setaf 2)---------------------------------------------------------------------"
+#Box de manutenção da Emmi Linux
+#Script escrito por Slackjeff <lrcjefferson@gmail.com>
+#Licença GPL
+#Emmi Inteligente
+#
+#
+#
+#
+#################################################
+# Instalar, Procurar, Remover, Atualizar, Limpar
+#################################################
+#
+#
+#
+#
+#
 
 
-echo "$(tput setaf 3)Vou mostrar o meu manual de uso!";sleep 1
-echo "$(tput setaf 7)Para qualquer coisa que você deseja executar, me chame!" ;sleep 1
-echo "$(tput setaf 1)É só chamar emmi-COMANDO" ;sleep 2
-echo "$(tput setaf 3)Lembre-se de não usar acentuações nos comandos!";sleep 1
-echo "$(tput setaf 2)---------------------------------------------------------------------"
-echo "$(tput setaf 7)Para ler o Manual do comando: $(tput setaf 5)emmi-ajuda $(tput setaf 6)NomePrograma"
-echo "$(tput setaf 2)---------------------------------------------------------------------"
-echo "$(tput setaf 7)Para Instalar um programa: $(tput setaf 5)emmi-instalar $(tput setaf 6)NomePrograma"
-echo "$(tput setaf 7)Para Remover um programa: $(tput setaf 5)emmi-remover$(tput setaf 6)NomePrograma"
-echo "$(tput setaf 7)Para Procurar um programa: $(tput setaf 5)emmi-procurar $(tput setaf 6)NomePrograma"
-echo "$(tput setaf 7)Para Atualizar o Sistema: $(tput setaf 5)emmi-atualizar"
-echo "$(tput setaf 7)Para Atualizar a Versão do Sistema: $(tput setaf 5)emmi-atualizar-versao"
-echo "$(tput setaf 2)---------------------------------------------------------------------"
-echo "$(tput setaf 7)Para gerar um pacote .deb, vá até a pasta e rode: $(tput setaf 5)emmi-pacote"
-echo "$(tput setaf 7)Para instalar um pacote .deb: $(tput setaf 5)emmi-pacote-instalar $(tput setaf 6)NomePrograma"
-echo "$(tput setaf 2)---------------------------------------------------------------------"
-echo "$(tput setaf 7)Para Desligar o Sistema: $(tput setaf 5)emmi-desligar"
+clear ;
+menu()
+  {
+echo "------------------------------------------"
+echo "	      	Emmi #Manutenção		"
+echo "						"
+echo "|-----------------------------------------"
+echo "|	Escolha uma das opções abaixo:		"
+echo "|-----------------------------------------"
+echo "| 1) Instalar				"
+echo "| 2) Procurar				"
+echo "| 3) Remover				"
+echo "| 4) Atualizar				"
+echo "| 5) Limpar				"
+echo "| 6) Ajuda				"
+echo "| 7) Sair					"
+echo "|-----------------------------------------"
+echo "|-----------------------------------------"
 
-echo "$(tput setaf 3)Lembre-se eu funciono somente via terminal"
+read opcao
+case $opcao in
+#####################
+#--Opções do menu
+#####################
+
+ 1) instalar ;;
+ 2) procurar ;;
+ 3) remover ;;
+ 4) atualizar ;;
+ 5) limpar ;;
+ 6) ajuda ;;
+ 7) exit ;;
+ *) "Opção Inexistente" ;
+clear ;
+menu ;;
+
+esac
+   }
+
+#--Começo do codigo
+
+###########################
+#--Instalação do sistema
+###########################
+instalar()
+ {
+	clear
+	echo "Digite o nome do programa"
+	read programa
+	apt install $programa
+	echo
+	echo "Concluído..." ;sleep 1
+	menu
+ }
+
+###########################
+#--Procurar no sistema
+###########################
+
+procurar()
+ {
+	clear
+	echo "Digite o nome do programa"
+	read programa
+	apt search $programa
+	echo "Concluído..."
+	echo
+	menu  
+ }
+
+#############################
+#--Remover pacotes do sistema
+#############################
+
+remover()
+ {
+	clear
+	echo "Digite o nome do programa"
+	read programa
+	apt remove $programa
+	echo "Concluído..."
+	echo
+	menu
+ }
+
+##########################
+#--Atualizar o sistema
+##########################
+
+atualizar()
+ {
+	clear
+	echo "Este procedimento pode demorar, dependendo da conexão da sua internet" ;sleep 2
+	echo "Você deseja continuar? [S/N]"
+	read resposta		
+	test "$resposta" = "n" && menu
+	apt update
+	echo "Concluímos o update do repositorio"
+	apt upgrade
+	echo
+	echo "Concluímos"
+	menu
+ }
+
+#########################
+#--Limpar o sistema
+#########################
+
+limpar()
+ {
+	clear
+	echo "Vamos limpar o sistema agora" ;sleep 1
+	apt clean
+	echo "Concluímos..." ;sleep 1
+	apt autoclean
+	echo "Concluído" ;sleep 1
+	menu
+ }
+
+ajuda()
+ {
+	clear
+	echo
+	echo
+	echo "########################################################################"
+	echo
+	echo "Lembre-se de não utilizar espaços na procura ou instalação dos programas"
+	echo
+	echo "Utilize SEMPRE letras minusculas e para separar arquivos utilize -"
+	echo
+	echo "Exemplo CERTO:"
+	echo "google-chrome, firefox-esr, acorn-fdisk"
+	echo
+	echo "Exemplo ERRADO:"
+	echo "google chrome, firefox esr"
+	echo
+	echo "########################################################################" ;sleep 5
+	echo
+	echo
+	menu
+ }
+clear
+menu
