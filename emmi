@@ -26,6 +26,7 @@ echo "						"
 echo "|-----------------------------------------"
 echo "|	Escolha uma das opções abaixo:		"
 echo "|-----------------------------------------"
+echo "| 0) Logar como root			"
 echo "| 1) Instalar				"
 echo "| 2) Procurar				"
 echo "| 3) Remover				"
@@ -42,6 +43,7 @@ case $opcao in
 #--Opções do menu
 #####################
 
+ 0) root ;;
  1) instalar ;;
  2) procurar ;;
  3) remover ;;
@@ -59,8 +61,35 @@ esac
 #--Começo do codigo
 
 ###########################
-#--Instalação do sistema
+#--Logar como root
 ###########################
+
+root()
+ {
+	echo "Você deseja logar como root? [s/n]"
+	read resposta
+	test "$resposta" = "n" && menu
+	echo
+if [ "$(id -u)" != "0" ]
+
+ then
+	su -
+
+ else
+	echo "Você já possui os poderes de super vaca."
+	echo
+	echo
+	menu
+	echo
+fi
+
+ }
+
+
+##########################
+#-- Instalação pacote
+##########################
+
 instalar()
  {
 	clear
@@ -110,7 +139,7 @@ atualizar()
  {
 	clear
 	echo "Este procedimento pode demorar, dependendo da conexão da sua internet" ;sleep 2
-	echo "Você deseja continuar? [S/N]"
+	echo "Você deseja continuar? [s/n]"
 	read resposta		
 	test "$resposta" = "n" && menu
 	apt update
