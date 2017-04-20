@@ -10,7 +10,6 @@ then
         echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
         su -l
 else
-else
         echo "Super vaca ativada, sinto cheiro de novos pacotes" ;sleep 1
 fi
 #fim
