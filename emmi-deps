@@ -1,17 +1,31 @@
 #!/bin/bash
-#Emmi Inteligente versão 1.0
-#Emmi Linux
+##[ Ficha ]##################################################
+#
+# Nome: Emmi-deps
+# Escrito por: Slackjeff <lrcjefferson@gmail.com>
+# Criado em: 10/03/2017
+# Ultima atualização: N/A
+#
+##[ Descrição ]##############################################
+#
+# Procurar dependencias e instalar.
+#
+##[ Inicio do Script ]#######################################
 
 # Não é root, logar como root
 if [ "$(id -u)" != "0" ]
 then
         echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
-        su -l
+        echo "Deseja logar como root? [S/n]"
+	read resposta
+	test "$resposta" = "n" && exit
+	su -c "emmi-deps"
+	
+
 else
         echo "Super vaca ativada, vamos ver as dependências" ;sleep 1
-fi
-#fim
-
+	apt-get moo ;sleep 1
 	echo "Começando" ;sleep 1
-	apt-get -f install
+	apt -f install
 	echo "$(tput setaf 3)Concluído..." ;sleep 1
+fi

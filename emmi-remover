@@ -1,20 +1,33 @@
 #!/bin/bash
-
-#Emmi Inteligente versão 1.0
-#Emmi Linux
+##[ Ficha ]##################################################
+#
+# Nome: Emmi-remover
+# Escrito por: Slackjeff <lrcjefferson@gmail.com>
+# Criado em: 10/03/2017
+# Ultima atualização: N/A
+#
+##[ Descrição ]##############################################
+#
+# Script para remoção de pacotes.
+#
+##[ Inicio do Script ]#######################################
 
 
 # Não é root, logar como root
 if [ "$(id -u)" != "0" ]
 then
         echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
-        su -l
+	echo "Deseja logar como root? [S/n]"
+	read resposta
+	test "$resposta" = "n" && exit
+	su -c "emmi-remover $1"
+    
 else
         echo "Super vaca ativada, $(tput setaf 3)vamos remover o pacote" ;sleep 1
-fi
-#fim
-
 	echo "Removendo..." ;sleep 1
+	echo
 	apt remove $1
 	echo
+	clear
 	echo "$(tput setaf 3)Pacote removido...Tenha um bom dia!"
+fi

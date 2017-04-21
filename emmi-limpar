@@ -1,20 +1,32 @@
 #!/bin/bash
-#Emmi Inteligente versão 1.0
-#Emmi Linux
+##[ Ficha ]##################################################
+#
+# Nome: Emmi-limpar
+# Escrito por: Slackjeff <lrcjefferson@gmail.com>
+# Criado em: 10/03/2017
+# Ultima atualização: N/A
+#
+##[ Descrição ]##############################################
+#
+# Script para fazer limpeza do sistema.
+#
+##[ Inicio do Script ]#######################################
 
 # Não é root, logar como root
 if [ "$(id -u)" != "0" ]
 then
         echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
-        su -l
-else
-else
-        echo "Super vaca ativada, $(tput setaf 3)vamos limpar o sistema (MOOOO)" ;sleep 1
-fi
-#fim
+     	echo "Deseja logar como root? [S/n]"
+	read resposta
+	test "$resposta" = "n" && exit
+	su -c "emmi-limpar"
 
+else
+        echo "Super vaca ativada, $(tput setaf 3)vamos limpar o sistema" ;sleep 1
 	echo "$(tput setaf 1)Iniciando limpeza" ;sleep 1
-	apt clean
-	echo "$(tput setaf 2)..." ;sleep 1
-	apt autoclean
+	echo	
+	apt-get clean	
+	apt-get autoclean
+	echo
 	echo "$(tput setaf 2)Concluímos a limpeza, tenha um ótimo dia!"
+fi

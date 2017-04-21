@@ -1,20 +1,15 @@
 #!/bin/bash
 ##[ Ficha ]##################################################
 #
-# Nome: Emmi-desligar
+# Nome: Emmi-manual
 # Escrito por: Slackjeff <lrcjefferson@gmail.com>
 # Criado em: 10/03/2017
 # Ultima atualização: N/A
 #
 ##[ Descrição ]##############################################
 #
-# Desliga o sistema.
+# Script que dá o manual para o usuário
 #
 ##[ Inicio do Script ]#######################################
 
-	
-	echo "Você realmente deseja desligar o sistema? [S/n]"
-	read resposta
-	test "$resposta" == "n" && exit
-	sudo shutdown -h now
-	echo "$(tput setaf 2)Desligando o sistema..." 
+man $1 | less

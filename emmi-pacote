@@ -1,19 +1,33 @@
 #!/bin/bash
-#Emmi Inteligente versão 1.0
-#Emmi Linux
+##[ Ficha ]##################################################
+#
+# Nome: Emmi-pacote
+# Escrito por: Slackjeff <lrcjefferson@gmail.com>
+# Criado em: 10/03/2017
+# Ultima atualização: N/A
+#
+##[ Descrição ]##############################################
+#
+# Script para construção de pacotes .deb
+# Navegar até a pasta alvo e rodar o comando.
+#
+##[ Inicio do Script ]#######################################
 
 # Não é root, logar como root
 if [ "$(id -u)" != "0" ]
 then
         echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
-        su -l
-else
-        echo "Super vaca ativada, $(tput setaf 3)vamos criar um pacote" ;sleep 1
-fi
-#fim
+	echo "Você deseja logar como root? [S/n]"
+	read resposta
+	test "$resposta" = "n" && exit
+	su -c "emmi-pacote"
 
+else
+
+        echo "Super vaca ativada, $(tput setaf 3)vamos criar um pacote" ;sleep 1
 	echo "$(tput setaf 1)Talvez encontre problemas com dependências."
 	echo "$(tput setaf 2)Para corrigir use emmi-deps" ;sleep 2
 	dpkg-buildpackage
 	echo "$(tput setaf 3)Concluído..." ;sleep 1
 	echo "$(tput setaf 4)Lembre-se para instalar o pacote gerado emmi-pacote-instalar" ;sleep 1
+fi

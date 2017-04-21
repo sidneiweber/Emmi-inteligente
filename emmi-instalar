@@ -1,20 +1,30 @@
 #!/bin/bash
-
-#Emmi Inteligente versão 1.0
-#Emmi Linux
+##[ Ficha ]##################################################
+#
+# Nome: Emmi-instalar
+# Escrito por: Slackjeff <lrcjefferson@gmail.com>
+# Criado em: 10/03/2017
+# Ultima atualização: N/A
+#
+##[ Descrição ]##############################################
+#
+# Instalar pacotes
+#
+##[ Inicio do Script ]#######################################
 
 
 # Não é root, logar como root
 if [ "$(id -u)" != "0" ]
 then
         echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
-        su -l
+	echo "Você deseja logar como root? [S/n]"
+	read resposta
+        test "$respota" = "n" && exit
+	su -c "emmi-instalar $1"
 else
         echo "Super vaca ativada, sinto cheiro de novos pacotes" ;sleep 1
-fi
-#fim
-
 	echo "$(tput setaf 2)Nunca se esqueça de atualizar o repositório, $(tput setaf 5)utilize emmi-atualizar." ;sleep 1
 	echo
 	apt install $1
 	echo "$(tput setaf 3)Concluímos...Tenha um bom dia!"
+fi

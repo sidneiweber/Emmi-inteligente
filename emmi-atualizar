@@ -1,12 +1,25 @@
 #!/bin/bash
-#Emmi Inteligente versão 1.0
-#Emmi Linux
+##[ Ficha ]##################################################
+#
+# Nome: Emmi-atualizar
+# Escrito por: Slackjeff <lrcjefferson@gmail.com>
+# Criado em: 10/03/2017
+# Ultima atualização: N/A
+#
+##[ Descrição ]##############################################
+#
+# Script que tem como objetivo facilitar
+# a atualização do sistema
+#
+##[ Inicio do Script ]#######################################
 
 
 if [ "$(id -u)" != "0" ]
 then
 	echo "$(tput setaf 2)Você precisa de poderes de super vaca, para rodar este programa."
-	su -l
+	echo "Você deseja logar como root? [S/n]"
+	read resposta
+	test "$resposta" = "n" && exit
 
 else
 	
