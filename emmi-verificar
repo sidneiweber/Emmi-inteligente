@@ -19,11 +19,11 @@ then
         echo "Deseja logar como root? [S/n]"
 	read resposta
 	test "$resposta" = "n" && exit
-	su -c (emmi-vericar)
+	su -c `emmi-vericar`
 
 else
         echo "Super vaca ativada, $(tput setaf 3)vamos verificar a integridade do pacote" ;sleep 1
 	echo "$(tput setaf 1)Verificando integridade dos pacotes " ;sleep 1
-	apt check
+	apt-get check
 	echo "$(tput setaf 2)Concluído..." ;sleep 1
 fi
